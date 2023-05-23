@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:mtd_app/mainpage/app_company_welcome.dart';
 import 'package:mtd_app/mainpage/app_listview.dart';
 import 'package:mtd_app/mainpage/category/aboutus.dart';
-import 'package:mtd_app/trash/schedule.dart';
+//import 'package:mtd_app/trash/schedule.dart';
 import 'package:mtd_app/mainpage/gridviewer.dart';
 import 'package:mtd_app/style/colors.dart';
 
@@ -16,7 +16,7 @@ import 'models/category_model.dart';
 
 List<Route> myRoute = [
   MaterialPageRoute(builder: (_) => const Companies()),
-  MaterialPageRoute(builder: (_) => const Schedule()),
+  //MaterialPageRoute(builder: (_) => const Schedule()),
   MaterialPageRoute(builder: (_) => const MapMap()),
 ];
 

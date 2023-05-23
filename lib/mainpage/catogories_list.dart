@@ -3,7 +3,7 @@ import 'package:mtd_app/icons/custom_app_icons.dart';
 import '../models/category_model.dart';
 import '../models/companies.dart';
 import '../style/colors.dart';
-import '../trash/companyscreen_test.dart';
+//import '../trash/companyscreen_test.dart';
 
 class SeemoreList extends StatelessWidget {
   const SeemoreList({Key? key}) : super(key: key);
@@ -52,21 +52,21 @@ class SeemoreList extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final currentCategory = categories[index];
                   return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CompanyScreenTest(
-                              image: companyItems[index].path,
-                              name: companyItems[index].name,
-                              description: companyItems[index].description,
-                              location: companyItems[index].location,
-                              hasExjobb: companyItems[index].hasExjobb,
-                              hasSommarjobb: companyItems[index].hasSommarjobb,
-                              hasJobb: companyItems[index].hasJobb),
-                        ),
-                      );
-                    },
+                    //onTap: () {
+                    //  Navigator.push(
+                    //    context,
+                    //    MaterialPageRoute(
+                    //      builder: (context) => CompanyScreenTest(
+                    //          image: companyItems[index].path,
+                    //          name: companyItems[index].name,
+                    //          description: companyItems[index].description,
+                    //          location: companyItems[index].location,
+                    //          hasExjobb: companyItems[index].hasExjobb,
+                    //          hasSommarjobb: companyItems[index].hasSommarjobb,
+                    //          hasJobb: companyItems[index].hasJobb),
+                    //    ),
+                    //  );
+                    //},
                     child: Container(
                       margin: const EdgeInsets.only(top: 10, right: 10),
                       padding: const EdgeInsets.all(10),
