@@ -1,3 +1,4 @@
+// ignore: file_names
 class CompanyModel {
   String path;
   String name;
