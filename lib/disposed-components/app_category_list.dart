@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:mtd_app/disposed-components/companies.dart';
-import 'package:mtd_app/trash/schedule.dart';
+//import 'package:mtd_app/trash/schedule.dart';
 import 'package:mtd_app/style/colors.dart';
 import 'package:mtd_app/models/category_model.dart';
-import 'package:mtd_app/trash/eventScreen.dart';
-
+//import 'package:mtd_app/trash/eventScreen.dart';
+//
 import 'seemorelist.dart';
 
 List<Route> myRoute = [
   MaterialPageRoute(builder: (_) => const Companies()),
-  MaterialPageRoute(builder: (_) => const Schedule()),
+  //MaterialPageRoute(builder: (_) => const Schedule()),
   //MaterialPageRoute(builder: (_) => const MapMap()),
-  MaterialPageRoute(builder: (_) => const EventScreen()),
+  //MaterialPageRoute(builder: (_) => const EventScreen()),
 ];
 
 class AppCategoryList extends StatelessWidget {

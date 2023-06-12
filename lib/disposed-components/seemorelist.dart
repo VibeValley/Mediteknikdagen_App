@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mtd_app/icons/custom_app_icons.dart';
 import '../models/category_model.dart';
-import 'companyItems.dart';
+//import 'companyItems.dart';
 import '../style/colors.dart';
-import '../trash/companyscreen_test.dart';
+//import '../trash/companyscreen_test.dart';
 
 
 class SeemoreList extends StatelessWidget {
@@ -31,9 +31,9 @@ class SeemoreList extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.all(20),
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 Text(
                   'Category',
                   style: TextStyle(
@@ -54,19 +54,19 @@ class SeemoreList extends StatelessWidget {
                   final currentCategory = categories[index];
                   return GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CompanyScreenTest(
-                              image: companyItems[index].path,
-                              name: companyItems[index].name,
-                              description: companyItems[index].description,
-                              location: companyItems[index].location,
-                              hasExjobb: companyItems[index].hasExjobb,
-                              hasSommarjobb: companyItems[index].hasSommarjobb,
-                              hasJobb: companyItems[index].hasJobb),
-                        ),
-                      );
+                     // Navigator.push(
+                      //  context,
+                     //  MaterialPageRoute(
+                     //    //builder: (context) => CompanyScreenTest(
+                     //        image: companyItems[index].path,
+                     //        name: companyItems[index].name,
+                     //        description: companyItems[index].description,
+                     //        location: companyItems[index].location,
+                     //        hasExjobb: companyItems[index].hasExjobb,
+                     //        hasSommarjobb: companyItems[index].hasSommarjobb,
+                     //        hasJobb: companyItems[index].hasJobb),
+                     //  ),
+                     //);
                     },
                     child: Container(
                       margin: const EdgeInsets.only(top: 10, right: 10),

@@ -7,9 +7,9 @@ class AppSearch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 30, left: 30),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
           Text(
             'Flöde',
             style: TextStyle(

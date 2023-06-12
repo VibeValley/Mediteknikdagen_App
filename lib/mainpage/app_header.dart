@@ -10,12 +10,12 @@ class AppHeader extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(left: 30, top: 30, right: 30),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Row(
+        const Row(
           children: [
-            const SizedBox(width: 16),
+            SizedBox(width: 16),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'Hello,',
                   style: TextStyle(

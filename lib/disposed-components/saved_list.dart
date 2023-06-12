@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mtd_app/models/companies.dart';
+//import 'package:mtd_app/models/companies.dart';
 
 import '../models/category_model.dart';
 import '../style/colors.dart';
@@ -38,14 +38,14 @@ class SavedList extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.grey.withOpacity(0.1),
                             ),
-                            child: Row(
+                            child: const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  companyItems[i].name,
+                                //Text(
+                                  //companyItems[i].name,
                                   // style: const TextStyle(color: Color(0x00000000)),
-                                ),
-                                const Icon(
+                                //),
+                                Icon(
                                   Icons.favorite,
                                   color: mainColor,
                                   size: 40,

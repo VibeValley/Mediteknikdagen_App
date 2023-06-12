@@ -33,9 +33,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   //DateTime dateFormat = new DateTime("YYYY-MM-dd HH:mm:ss")
 
   final List<Widget> _widgetOptions = <Widget>[
-    Column(
+    const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
+      children: [
         //AppHeader(),
         AppWelcomer(),
         AppSearch(),
@@ -45,7 +45,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         //AppBottomBar(),
       ],
     ),
-    Column(children: const [
+    const Column(children: [
       // Search(),
       GridViewer(),
     ]),
@@ -53,7 +53,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     // Column(children: const [
     //   SavedList(),
     // ]),
-    Column(children: const [
+    const Column(children: [
       Event(),
       //Settings(),
     ]),

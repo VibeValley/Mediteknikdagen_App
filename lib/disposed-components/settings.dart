@@ -25,9 +25,9 @@ class Settings extends StatelessWidget {
         ),
         body: Container(
           padding: const EdgeInsets.all(30),
-          child: Column(
+          child: const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Text(
                 'Settings',
                 style: TextStyle(
