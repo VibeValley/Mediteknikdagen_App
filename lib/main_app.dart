@@ -7,6 +7,7 @@ import 'package:mtd_app/mainpage/app_notificationlist.dart';
 import 'package:mtd_app/notification.dart';
 
 import 'package:mtd_app/mainpage/gridviewer.dart';
+import 'package:mtd_app/mainpage/testframe.dart';
 import 'package:mtd_app/style/colors.dart';
 
 import 'mainpage/app_text.dart';
@@ -57,6 +58,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       Event(),
       //Settings(),
     ]),
+    const Column(children:[
+      testFrame(),
+    ]),
+    //HÄR KAN DU KALLA PÅ EN NY SIDA.
   ];
 
   @override
@@ -226,9 +231,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               //   ),
               //   label: '',
               // ),
+              
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.event,
+                ),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.favorite,
                 ),
               ),
             ],
