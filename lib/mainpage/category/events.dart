@@ -205,8 +205,8 @@ class _EventState extends State<Event> {
                     setState(() {
                       setEvent = readEvents_preMTD_fut();
                       premtd_color = Colors.deepOrange.withOpacity(0.1);
-                      mtd_color = Colors.white;
-                      rubrik = "PreMTD";
+                      mtd_color = Colors.black;
+                      rubrik = "PreeeMTD";
                     });
                   }),
               InkWell(
@@ -216,6 +216,7 @@ class _EventState extends State<Event> {
                       border: Border.all(color: mainColor, width: 2),
                       borderRadius: BorderRadius.circular(10),
                       color: mtd_color,
+                      //color: Colors.black,
                     ),
                     child: const Text(
                       'MTD',

@@ -59,7 +59,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       //Settings(),
     ]),
     const Column(children:[
-      testFrame(),
+      //TestFrame(),
+      TestFrame(),
     ]),
     //HÄR KAN DU KALLA PÅ EN NY SIDA.
   ];
