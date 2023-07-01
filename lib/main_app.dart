@@ -103,6 +103,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: const Color.fromARGB(255, 19, 41, 61),
         appBar: PreferredSize(
           preferredSize:
               Size.fromHeight(MediaQuery.of(context).size.height * 0.08),
@@ -110,11 +111,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             centerTitle: true,
             systemOverlayStyle: const SystemUiOverlayStyle(
               // Status bar color
-              statusBarColor: Colors.white,
+              //statusBarColor: Colors.white,
+              statusBarColor: Color.fromARGB(255, 19, 41, 61),
 
               // Status bar brightness (optional)
               statusBarIconBrightness:
-                  Brightness.dark, // For Android (dark icons)
+                  Brightness.light, // For Android (dark icons)
               statusBarBrightness: Brightness.light, // For iOS (dark icons)
             ),
             elevation: 0,
