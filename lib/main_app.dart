@@ -8,6 +8,7 @@ import 'package:mtd_app/notification.dart';
 
 import 'package:mtd_app/mainpage/gridviewer.dart';
 import 'package:mtd_app/mainpage/testframe.dart';
+import 'package:mtd_app/mainpage/post_feed.dart';
 import 'package:mtd_app/style/colors.dart';
 
 import 'mainpage/app_text.dart';
@@ -61,6 +62,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     const Column(children:[
       //TestFrame(),
       TestFrame(),
+    ]),
+    const Column(children:[
+      //TestFrame(),
+      PostFeed(),
     ]),
     //HÄR KAN DU KALLA PÅ EN NY SIDA.
   ];
@@ -124,7 +129,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             title: const InkWell(
               child: Icon(
                 MyFlutterApp.mtd_svart,
-                color: mainColor,
+                color: Colors.white,
+                //color: mainColor,
                 size: 40,
               ),
             ),
@@ -135,7 +141,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: IconButton(
                   icon: const Icon(
                     Icons.help_outline_outlined,
-                    color: mainColor,
+                    color: Colors.white,
+                    //color: mainColor,
                   ),
                   onPressed: () {
                     Future.delayed(Duration.zero, () {
@@ -243,6 +250,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.favorite,
+                ),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.event,
                 ),
               ),
             ],
