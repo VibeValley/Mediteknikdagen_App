@@ -295,6 +295,12 @@ class _EventState extends State<Event> {
                           itemCount: eventsData.length,
                           itemBuilder: (context, index) {
                             final currentEvent = eventsData[index];
+                            dynamic lastEvent = eventsData[1];
+                            
+                            String lastDate = '0';
+                            //print('First');
+                            //print(index);
+                            
 
                             // List hall = eventsData[index].contains("date");
                             return InkWell(
@@ -315,6 +321,27 @@ class _EventState extends State<Event> {
                                       ),
                                     ),
                                   );
+                                  if(index != 0){
+                                    lastEvent = eventsData[index-1];
+                                    Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => EventScreen(
+                                        title: lastEvent.title,
+                                        time: lastEvent.time,
+                                        date: lastEvent.date,
+                                        description: lastEvent.description,
+                                        descLong: lastEvent.desc_long,
+                                        image: lastEvent.image,
+                                        url: lastEvent.url,
+                                        urlNative: lastEvent.url_native,
+                                        linkText: lastEvent.link_text,
+                                      ),
+                                    ),
+                                  );
+                                  
+                                  }   
+                                  
                                 },
                                 child: Column(
                                   children: [
@@ -372,6 +399,60 @@ class _EventState extends State<Event> {
                                     //     return const SizedBox.shrink();
                                     //   }
                                     // }),
+                                      
+                                      LayoutBuilder(builder: (context, constraints){
+                                        print('in');
+                                        print(lastEvent.date);
+                                        print('out');
+                                        print(currentEvent.date);
+                                        var result = lastEvent.date.compareTo(currentEvent.date);
+                                        if(result != 0){
+                                          lastDate = currentEvent.date;
+                                          return(Container(
+                                            margin: const EdgeInsets.only(
+                                              top: 4,
+                                              left: 32,
+                                              bottom: 5,
+                                            ),
+                                            child: Row(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  currentEvent.date,
+                                                  style: const TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 20,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ));
+                                        }
+                                        lastDate = currentEvent.date;
+                                        return const Text('hej');
+                                      },
+                                      ),
+                                    
+                                    
+                                    //Container(
+                                    //  margin: const EdgeInsets.only(
+                                    //    top: 4,
+                                    //    left: 32,
+                                    //    bottom: 5,
+                                    //  ),
+                                    //  child: Row(
+                                    //    crossAxisAlignment: CrossAxisAlignment.start,
+                                    //    children: [
+                                    //      Text(
+                                    //        currentEvent.date,
+                                    //        style: const TextStyle(
+                                    //          color: Colors.white,
+                                    //          fontSize: 20,
+                                    //        ),
+                                    //      ),
+                                    //    ],
+                                    //  ),
+                                    //),
                                     Container( //Detta är container för varje objekt
                                         padding: const EdgeInsets.all(10),
                                         margin: const EdgeInsets.only(
@@ -381,7 +462,7 @@ class _EventState extends State<Event> {
                                             bottom: 4),
                                         decoration: BoxDecoration(
                                           border: Border.all(
-                                              color: mainColor, width: 1),
+                                              color: mainColor, width: 2),
                                           borderRadius:
                                               BorderRadius.circular(10),
                                         ),
