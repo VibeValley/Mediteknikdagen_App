@@ -47,9 +47,9 @@ class _TestFrameViewer extends State<TestFrame> {
               mainAxisSize: MainAxisSize.min,
               children: [
               const Padding(
-                padding: EdgeInsets.only(bottom: 20),
+                padding: EdgeInsets.only(bottom: 20, right: 190),
                 child: Icon(
-                  MyFlutterApp.mtd_svart,
+                  IconWithText.mtd_medtext,
                   color: Colors.white,
                   size: 140,
                 ),

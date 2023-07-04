@@ -25,3 +25,14 @@ class MyFlutterApp {
   static const IconData mtd_svart =
       IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
+
+class IconWithText {
+  IconWithText._();
+
+  static const _kFontFam = 'IconWithText';
+  static const String? _kFontPkg = null;
+
+  // ignore: constant_identifier_names
+  static const IconData mtd_medtext =
+      IconData(0x61, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+}

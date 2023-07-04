@@ -198,14 +198,15 @@ class _EventState extends State<Event> {
                       style: TextStyle(
                         fontWeight: FontWeight.w900,
                         fontSize: 24,
+                        color: Colors.white,
                       ),
                     ),
                   ),
                   onTap: () async {
                     setState(() {
                       setEvent = readEvents_preMTD_fut();
-                      premtd_color = Colors.deepOrange.withOpacity(0.1);
-                      mtd_color = Colors.black;
+                      premtd_color = Colors.deepOrange.withOpacity(1);
+                      mtd_color = backgroundColor;
                       rubrik = "PreeeMTD";
                     });
                   }),
@@ -224,15 +225,16 @@ class _EventState extends State<Event> {
                       style: TextStyle(
                         fontWeight: FontWeight.w900,
                         fontSize: 24,
+                        color: Colors.white,
                       ),
                     ),
                   ),
                   onTap: () async {
                     setState(() {
                       setEvent = readEvents_MTD_fut();
-                      premtd_color = Colors.white;
-                      mtd_color = Colors.deepOrange.withOpacity(0.1);
-                      rubrik = "MTD";
+                      premtd_color = backgroundColor;
+                      mtd_color = Colors.deepOrange.withOpacity(1);
+                      rubrik = "MTTTD";
                     });
                   }),
             ],
@@ -241,7 +243,7 @@ class _EventState extends State<Event> {
             padding: const EdgeInsets.all(10),
             child: Text(
               rubrik,
-              style: const TextStyle(color: Colors.black, fontSize: 40),
+              style: const TextStyle(color: Colors.white, fontSize: 40),
             ),
           ),
           Expanded(
@@ -370,7 +372,7 @@ class _EventState extends State<Event> {
                                     //     return const SizedBox.shrink();
                                     //   }
                                     // }),
-                                    Container(
+                                    Container( //Detta är container för varje objekt
                                         padding: const EdgeInsets.all(10),
                                         margin: const EdgeInsets.only(
                                             top: 4,
@@ -393,19 +395,19 @@ class _EventState extends State<Event> {
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
-                                                  Text(
+                                                  Text( //Här är daturmet
                                                     currentEvent.date,
                                                     style: const TextStyle(
                                                       fontSize: 20,
-                                                      color: Colors.black,
+                                                      color: Colors.white,
                                                       fontWeight:
                                                           FontWeight.bold,
                                                     ),
                                                   ),
-                                                  Text(
+                                                  Text( //Här är tiden
                                                     currentEvent.time,
                                                     style: const TextStyle(
-                                                      color: Colors.black,
+                                                      color: Colors.white,
                                                     ),
                                                   ),
                                                 ],
@@ -419,19 +421,19 @@ class _EventState extends State<Event> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
-                                                    Text(
+                                                    Text( //Här är titeln
                                                       currentEvent.title,
                                                       style: const TextStyle(
                                                         fontSize: 20,
-                                                        color: Colors.black,
+                                                        color: Colors.white,
                                                         fontWeight:
                                                             FontWeight.bold,
                                                       ),
                                                     ),
-                                                    Text(
+                                                    Text( //Här är beskrivningen
                                                       currentEvent.description,
                                                       style: const TextStyle(
-                                                        color: Colors.black,
+                                                        color: Colors.white,
                                                       ),
                                                     ),
                                                   ],

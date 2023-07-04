@@ -114,6 +114,9 @@ flutter:
     - family:  MyFlutterApp
       fonts:
        - asset: fonts/MyFlutterApp.ttf
+    - family: IconWithText
+      fonts:
+      - asset: fonts/icomoon.ttf
     - family: Lato
       fonts:
       - asset: fonts/Lato/Lato-Bold.ttf
