@@ -39,9 +39,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         //AppHeader(),
-        AppWelcomer(),
-        AppSearch(),
-        AppMountListView(),
+        TestFrame(),
+        //AppWelcomer(),
+        //AppSearch(),
+        //AppMountListView(),
 
         //AppCategoryList(),
         //AppBottomBar(),
@@ -59,10 +60,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       Event(),
       //Settings(),
     ]),
-    const Column(children:[
-      //TestFrame(),
-      TestFrame(),
-    ]),
+    //const Column(children:[
+    //  //TestFrame(),
+    //  TestFrame(),
+    //]),
     const Column(children:[
       //TestFrame(),
       PostFeed(),
@@ -247,14 +248,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   Icons.event,
                 ),
               ),
+              //BottomNavigationBarItem(
+              //  icon: Icon(
+              //    Icons.favorite,
+              //  ),
+              //),
               BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.favorite,
-                ),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.event,
+                  Icons.article,
                 ),
               ),
             ],

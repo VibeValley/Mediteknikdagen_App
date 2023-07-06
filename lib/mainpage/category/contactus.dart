@@ -66,10 +66,11 @@ class ContactUsState extends State<ContactUs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
         appBar: AppBar(
           centerTitle: true,
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: backgroundColor,
           title: Center(
             child: GestureDetector(
               onTap: () {
@@ -77,7 +78,7 @@ class ContactUsState extends State<ContactUs> {
               },
               child: const Icon(
                 MyFlutterApp.mtd_svart,
-                color: mainColor,
+                color: Colors.white,
                 size: 40,
               ),
             ),
@@ -85,13 +86,15 @@ class ContactUsState extends State<ContactUs> {
           actions: const [
             SizedBox(width: 40, height: 40),
           ],
-          iconTheme: const IconThemeData(color: mainColor),
+          iconTheme: const IconThemeData(color: Colors.white),
         ),
-        body: CustomScrollView(slivers: [
+        body: CustomScrollView(
+          slivers: [
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return Column(
+                  
                   children: [
                     const SizedBox(height: 50),
                     Container(
@@ -102,6 +105,7 @@ class ContactUsState extends State<ContactUs> {
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 40,
+                          color: Colors.white
                         ),
                       ),
                     ),
@@ -112,7 +116,8 @@ class ContactUsState extends State<ContactUs> {
                         about,
                         textAlign: TextAlign.center,
                         style:
-                            const TextStyle(fontSize: 20, fontFamily: 'Lato'),
+                            const TextStyle(fontSize: 20, fontFamily: 'Lato', color: mainColor,),
+                            
                       ),
                     ),
                     Container(
@@ -120,7 +125,7 @@ class ContactUsState extends State<ContactUs> {
                       child: Text(
                         aboutus,
                         style:
-                            const TextStyle(fontSize: 20, fontFamily: 'Lato'),
+                            const TextStyle(fontSize: 20, fontFamily: 'Lato',color: Colors.white,),
                       ),
                     ),
                     Container(
@@ -211,13 +216,13 @@ class ContactUsState extends State<ContactUs> {
                           )),
                     ),
                     Text(_selectedIndexName,
-                        style: const TextStyle(fontSize: 25)),
+                        style: const TextStyle(fontSize: 25, color: mainColor)),
                     Text(_selectedIndexPost,
-                        style: const TextStyle(fontSize: 20)),
+                        style: const TextStyle(fontSize: 20, color: Colors.white)),
                     Container(
                         padding: const EdgeInsets.all(20.0),
                         child: const Text("Frågor?",
-                            style: TextStyle(fontSize: 15))),
+                            style: TextStyle(fontSize: 15, color: Colors.white))),
                     LayoutBuilder(builder: (context, constraints) {
                       if (_selectedIndexMail == "") {
                         return const SizedBox.shrink();
@@ -229,7 +234,7 @@ class ContactUsState extends State<ContactUs> {
                                 "Kontakta oss",
                                 style: TextStyle(
                                     fontSize: 20,
-                                    color: Colors.blue,
+                                    color: Color.fromARGB(255, 60, 161, 243),
                                     fontFamily: 'Lato'),
                               ),
                               onTap: () => _launchURL(_selectedIndexMail)),

@@ -65,9 +65,8 @@ class _TestFrameViewer extends State<TestFrame> {
                   fontSize: 14),
               ),
               Expanded(
-                  
                     child: StreamBuilder<List<Company>>(
-                      
+                        
                         stream: readCompanyWelcome1(),
                         builder: (context, snapshot) {
                           if (snapshot.hasError) {
@@ -135,6 +134,21 @@ class _TestFrameViewer extends State<TestFrame> {
                             return const Text('Loading...');
                           }
                         })),
+              
+                        Container(
+                          padding: const EdgeInsets.only(left: 14.0),
+                          color: backgroundColor,
+                          width: double.infinity,
+                          child: const Text(
+                            'Senaste Aktivitet',
+                            textAlign: TextAlign.left, 
+                            style: TextStyle(
+                              color: mainColor,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ),
             ],
             )
         

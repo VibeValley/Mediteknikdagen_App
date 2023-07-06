@@ -87,7 +87,7 @@ class CompanyScreen extends StatelessWidget {
               margin: const EdgeInsets.only(left: 20.0, right: 20.0),
               child: Text(
                 name,
-                style: const TextStyle(fontSize: 40, color: Colors.white),  
+                style: const TextStyle(fontSize: 40, color: mainColor),  
               ),
             ),
             Container(
