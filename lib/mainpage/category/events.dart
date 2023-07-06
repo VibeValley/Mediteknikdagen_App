@@ -287,7 +287,7 @@ class _EventState extends State<Event> {
                       // }).toList();
 
                       //  print(eventsDates);
-
+                      //List<String> words = [];
                       return ListView.builder(
                           shrinkWrap: true,
                           scrollDirection: Axis.vertical,
@@ -295,10 +295,6 @@ class _EventState extends State<Event> {
                           itemCount: eventsData.length,
                           itemBuilder: (context, index) {
                             final currentEvent = eventsData[index];
-                            dynamic lastEvent = eventsData[1];
-                            
-                            String lastDate = '0';
-                            //print('First');
                             //print(index);
                             
 
@@ -321,27 +317,7 @@ class _EventState extends State<Event> {
                                       ),
                                     ),
                                   );
-                                  if(index != 0){
-                                    lastEvent = eventsData[index-1];
-                                    Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => EventScreen(
-                                        title: lastEvent.title,
-                                        time: lastEvent.time,
-                                        date: lastEvent.date,
-                                        description: lastEvent.description,
-                                        descLong: lastEvent.desc_long,
-                                        image: lastEvent.image,
-                                        url: lastEvent.url,
-                                        urlNative: lastEvent.url_native,
-                                        linkText: lastEvent.link_text,
-                                      ),
-                                    ),
-                                  );
-                                  
-                                  }   
-                                  
+
                                 },
                                 child: Column(
                                   children: [
@@ -401,13 +377,12 @@ class _EventState extends State<Event> {
                                     // }),
                                       
                                       LayoutBuilder(builder: (context, constraints){
-                                        print('in');
-                                        print(lastEvent.date);
-                                        print('out');
-                                        print(currentEvent.date);
-                                        var result = lastEvent.date.compareTo(currentEvent.date);
-                                        if(result != 0){
-                                          lastDate = currentEvent.date;
+                                        //var result = lastEvent.date.compareTo(currentEvent.date);
+                                        if(index != 0 && eventsData[index].date == eventsData[index-1].date){
+                                          return const Text(' ');
+                                        }
+                                        
+                                          //lastDate = currentEvent.date;
                                           return(Container(
                                             margin: const EdgeInsets.only(
                                               top: 4,
@@ -427,32 +402,9 @@ class _EventState extends State<Event> {
                                               ],
                                             ),
                                           ));
-                                        }
-                                        lastDate = currentEvent.date;
-                                        return const Text('hej');
                                       },
                                       ),
                                     
-                                    
-                                    //Container(
-                                    //  margin: const EdgeInsets.only(
-                                    //    top: 4,
-                                    //    left: 32,
-                                    //    bottom: 5,
-                                    //  ),
-                                    //  child: Row(
-                                    //    crossAxisAlignment: CrossAxisAlignment.start,
-                                    //    children: [
-                                    //      Text(
-                                    //        currentEvent.date,
-                                    //        style: const TextStyle(
-                                    //          color: Colors.white,
-                                    //          fontSize: 20,
-                                    //        ),
-                                    //      ),
-                                    //    ],
-                                    //  ),
-                                    //),
                                     Container( //Detta är container för varje objekt
                                         padding: const EdgeInsets.all(10),
                                         margin: const EdgeInsets.only(
@@ -465,60 +417,78 @@ class _EventState extends State<Event> {
                                               color: mainColor, width: 2),
                                           borderRadius:
                                               BorderRadius.circular(10),
+                                          //color: mainColor,
                                         ),
                                         child: LayoutBuilder(
                                             builder: (context, constraints) {
-                                          return Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                          return Column(
                                             children: [
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text( //Här är daturmet
-                                                    currentEvent.date,
-                                                    style: const TextStyle(
-                                                      fontSize: 20,
-                                                      color: Colors.white,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
+                                              Padding(
+                                                padding: const EdgeInsets.only(bottom: 5),
+                                                child: Text( //Här är titeln
+                                                  currentEvent.title,
+                                                  style: const TextStyle(
+                                                    fontSize: 20,
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.bold,
                                                   ),
-                                                  Text( //Här är tiden
-                                                    currentEvent.time,
-                                                    style: const TextStyle(
-                                                      color: Colors.white,
+                                                ),
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment.start,
+                                                    children: [
+                                                      //Text( //Här är daturmet
+                                                      //  currentEvent.date,
+                                                      //  style: const TextStyle(
+                                                      //    fontSize: 20,
+                                                      //    color: Colors.white,
+                                                      //    fontWeight:
+                                                      //        FontWeight.bold,
+                                                      //  ),
+                                                      //),
+                                                      Text( //Här är tiden
+                                                        currentEvent.time,
+                                                        style: const TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 17,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                    width: 160,
+                                                    margin: const EdgeInsets.only(
+                                                      right: 10,
+                                                    ),
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment.start,
+                                                      children: [
+                                                        //Text( //Här är titeln
+                                                        //  currentEvent.title,
+                                                        //  style: const TextStyle(
+                                                        //    fontSize: 20,
+                                                        //    color: Colors.white,
+                                                        //    fontWeight:
+                                                        //        FontWeight.bold,
+                                                        //  ),
+                                                        //),
+                                                        Text( //Här är beskrivningen
+                                                          currentEvent.description,
+                                                          style: const TextStyle(
+                                                            color: Colors.white,
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ],
-                                              ),
-                                              Container(
-                                                width: 160,
-                                                margin: const EdgeInsets.only(
-                                                  right: 10,
-                                                ),
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text( //Här är titeln
-                                                      currentEvent.title,
-                                                      style: const TextStyle(
-                                                        fontSize: 20,
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                    ),
-                                                    Text( //Här är beskrivningen
-                                                      currentEvent.description,
-                                                      style: const TextStyle(
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
                                               ),
                                             ],
                                           );
