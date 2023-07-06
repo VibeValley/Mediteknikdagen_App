@@ -47,10 +47,11 @@ class CompanyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
-        backgroundColor: mainColor,
+        backgroundColor: backgroundColor,
         title: Center(
           child: GestureDetector(
             onTap: () {
@@ -68,10 +69,11 @@ class CompanyScreen extends StatelessWidget {
         ],
         iconTheme: const IconThemeData(color: Colors.white),
       ),
-      body: Container(
-        constraints: const BoxConstraints(minHeight: 400, maxHeight: 600),
+      body: SingleChildScrollView(
+      child: Container(
+        constraints: const BoxConstraints(minHeight: 400, maxHeight: 1000),
         decoration: BoxDecoration(
-          border: Border.all(color: mainColor, width: 2),
+          border: Border.all(color: backgroundColor, width: 2),
           borderRadius: BorderRadius.circular(10),
           // color: Colors.grey.withOpacity(0.1),
         ),
@@ -85,11 +87,11 @@ class CompanyScreen extends StatelessWidget {
               margin: const EdgeInsets.only(left: 20.0, right: 20.0),
               child: Text(
                 name,
-                style: const TextStyle(fontSize: 40),
+                style: const TextStyle(fontSize: 40, color: Colors.white),  
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.only(bottom: 10.0, top: 10.0, left: 17.0, right: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -97,47 +99,47 @@ class CompanyScreen extends StatelessWidget {
                     children: [
                       if (hasExjobb == true) ...[
                         Container(
-                          margin: const EdgeInsets.all(3.0),
-                          padding: const EdgeInsets.all(3.0),
-                          decoration: const BoxDecoration(color: mainColor),
+                          margin: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 3.0, right: 4.0),
+                          padding: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 5.0, right: 5.0),
+                          decoration: BoxDecoration(color: mainColor, borderRadius: BorderRadius.circular(10)),
                           child: const Text('Exjobb',
-                              style: TextStyle(color: Colors.white)),
+                              style: TextStyle(fontSize: 12, color: Colors.white)),
                         ),
                       ],
                       if (hasSommarjobb == true) ...[
                         Container(
-                          margin: const EdgeInsets.all(3.0),
-                          padding: const EdgeInsets.all(3.0),
-                          decoration: const BoxDecoration(color: mainColor),
+                          margin: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 3.0, right: 4.0),
+                          padding: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 5.0, right: 5.0),
+                          decoration: BoxDecoration(color: mainColor, borderRadius: BorderRadius.circular(10)),
                           child: const Text('Sommarjobb',
-                              style: TextStyle(color: Colors.white)),
+                              style: TextStyle(fontSize: 12, color: Colors.white)),
                         ),
                       ],
                       if (hasJobb == true) ...[
                         Container(
-                          margin: const EdgeInsets.all(3.0),
-                          padding: const EdgeInsets.all(3.0),
-                          decoration: const BoxDecoration(color: mainColor),
+                          margin: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 3.0, right: 4.0),
+                          padding: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 5.0, right: 5.0),
+                          decoration: BoxDecoration(color: mainColor, borderRadius: BorderRadius.circular(10)),
                           child: const Text('Jobb',
-                              style: TextStyle(color: Colors.white)),
+                              style: TextStyle(fontSize: 12, color: Colors.white)),
                         ),
                       ],
                       if (hasPraktik == true) ...[
                         Container(
-                          margin: const EdgeInsets.all(3.0),
-                          padding: const EdgeInsets.all(3.0),
-                          decoration: const BoxDecoration(color: mainColor),
+                          margin: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 3.0, right: 4.0),
+                          padding: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 5.0, right: 5.0),
+                          decoration: BoxDecoration(color: mainColor, borderRadius: BorderRadius.circular(10)),
                           child: const Text('Praktik',
-                              style: TextStyle(color: Colors.white)),
+                              style: TextStyle(fontSize: 12, color: Colors.white)),
                         ),
                       ],
                       if (hasTrainee == true) ...[
                         Container(
-                          margin: const EdgeInsets.all(3.0),
-                          padding: const EdgeInsets.all(3.0),
-                          decoration: const BoxDecoration(color: mainColor),
+                          margin: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 3.0, right: 4.0),
+                          padding: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 5.0, right: 5.0),
+                          decoration: BoxDecoration(color: mainColor, borderRadius: BorderRadius.circular(10)),
                           child: const Text('Trainee',
-                              style: TextStyle(color: Colors.white)),
+                              style: TextStyle(fontSize: 12, color: Colors.white)),
                         ),
                       ],
                     ],
@@ -150,15 +152,16 @@ class CompanyScreen extends StatelessWidget {
                 if (description == "") {
                   return const SizedBox.shrink();
                 } else {
-                  return SingleChildScrollView(
-                    child: Container(
+                  return Container(
+                      
+                      //color: Colors.blue,
                       margin: const EdgeInsets.only(left: 20.0, right: 20.0),
                       child: Text(
                         description,
+                        textAlign: TextAlign.left,
                         style:
-                            const TextStyle(fontSize: 20, fontFamily: 'Lato'),
+                            const TextStyle(fontSize: 20, fontFamily: 'Lato', color: Colors.white),
                       ),
-                    ),
                   );
                 }
               }),
@@ -168,6 +171,7 @@ class CompanyScreen extends StatelessWidget {
                 return const SizedBox.shrink();
               } else {
                 return Container(
+                  //color: Colors.green,
                   margin: const EdgeInsets.all(20.0),
                   alignment: Alignment.topCenter,
                   child: AspectRatio(
@@ -181,6 +185,7 @@ class CompanyScreen extends StatelessWidget {
             })
           ],
         ),
+      ),
       ),
     );
   }

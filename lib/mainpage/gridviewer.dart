@@ -82,18 +82,23 @@ class _GridViewerState extends State<GridViewer> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
+                
                 children: [
-                  const Text(
-                    'Upptäck',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      fontSize: 24,
+                  const Padding(
+                    padding: EdgeInsets.only(left: 4.0),
+                    child: Text(
+                      'Upptäck',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: 24,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   IconButton(
                     icon: const Icon(
                       Icons.help_outline_outlined,
-                      color: mainColor,
+                      color: Colors.white,
                     ),
                     onPressed: () {
                       Future.delayed(Duration.zero, () {
@@ -112,7 +117,7 @@ class _GridViewerState extends State<GridViewer> {
                       padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
                         color: Colors.grey[200],
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(20),
                       ),
                       child: Column(children: [
                         TextField(
@@ -190,8 +195,8 @@ class _GridViewerState extends State<GridViewer> {
                   InkWell(
                     borderRadius: BorderRadius.circular(10),
                     child: Container(
-                      margin: const EdgeInsets.all(3.0),
-                      padding: const EdgeInsets.all(3.0),
+                      margin: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 2.0, right: 5.0),
+                      padding: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 5.0, right: 5.0),
                       decoration: BoxDecoration(
                         color: _containerColor1,
                         borderRadius: BorderRadius.circular(10),
@@ -217,8 +222,8 @@ class _GridViewerState extends State<GridViewer> {
                   InkWell(
                     borderRadius: BorderRadius.circular(10),
                     child: Container(
-                      margin: const EdgeInsets.all(3.0),
-                      padding: const EdgeInsets.all(3.0),
+                      margin: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 3.0, right: 5.0),
+                      padding: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 5.0, right: 5.0),
                       decoration: BoxDecoration(
                         color: _containerColor2,
                         borderRadius: BorderRadius.circular(10),
@@ -243,8 +248,8 @@ class _GridViewerState extends State<GridViewer> {
                   InkWell(
                     borderRadius: BorderRadius.circular(10),
                     child: Container(
-                      margin: const EdgeInsets.all(3.0),
-                      padding: const EdgeInsets.all(3.0),
+                      margin: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 3.0, right: 5.0),
+                      padding: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 5.0, right: 5.0),
                       decoration: BoxDecoration(
                         color: _containerColor3,
                         borderRadius: BorderRadius.circular(10),
@@ -268,8 +273,8 @@ class _GridViewerState extends State<GridViewer> {
                   InkWell(
                     borderRadius: BorderRadius.circular(10),
                     child: Container(
-                      margin: const EdgeInsets.all(3.0),
-                      padding: const EdgeInsets.all(3.0),
+                      margin: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 3.0, right: 5.0),
+                      padding: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 5.0, right: 5.0),
                       decoration: BoxDecoration(
                         color: _containerColor4,
                         borderRadius: BorderRadius.circular(10),
@@ -294,8 +299,8 @@ class _GridViewerState extends State<GridViewer> {
                   InkWell(
                     borderRadius: BorderRadius.circular(10),
                     child: Container(
-                      margin: const EdgeInsets.all(3.0),
-                      padding: const EdgeInsets.all(3.0),
+                      margin: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 3.0, right: 5.0),
+                      padding: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 5.0, right: 5.0),
                       decoration: BoxDecoration(
                         color: _containerColor5,
                         borderRadius: BorderRadius.circular(10),
