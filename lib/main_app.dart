@@ -23,6 +23,9 @@ import 'mainpage/category/contactus.dart';
 //   MaterialPageRoute(builder: (_) => const MapMap()),
 // ];
 
+
+// TODO: GÖR EN MENTI
+
 class MyStatefulWidget extends StatefulWidget {
   const MyStatefulWidget({Key? key}) : super(key: key);
 
