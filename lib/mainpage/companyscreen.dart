@@ -73,9 +73,16 @@ class CompanyScreen extends StatelessWidget {
       child: Container(
         constraints: const BoxConstraints(minHeight: 400, maxHeight: 1000),
         decoration: BoxDecoration(
-          border: Border.all(color: backgroundColor, width: 2),
-          borderRadius: BorderRadius.circular(10),
-          // color: Colors.grey.withOpacity(0.1),
+          color: const Color.fromARGB(255, 39, 56, 72),
+          borderRadius: BorderRadius.circular(13),
+          boxShadow:  [
+            BoxShadow(
+              color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.3),
+              spreadRadius: 1,
+              blurRadius: 6,
+              offset: const Offset(3, 5)),
+          ],
+          //color: mainColor,
         ),
         alignment: Alignment.topCenter,
         padding: const EdgeInsets.all(10.0),

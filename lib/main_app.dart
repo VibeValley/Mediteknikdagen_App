@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mtd_app/mainpage/app_company_welcome.dart';
-import 'package:mtd_app/mainpage/app_notificationlist.dart';
 
 import 'package:mtd_app/notification.dart';
 
@@ -11,7 +9,6 @@ import 'package:mtd_app/mainpage/testframe.dart';
 import 'package:mtd_app/mainpage/post_feed.dart';
 import 'package:mtd_app/style/colors.dart';
 
-import 'mainpage/app_text.dart';
 import '../icons/custom_app_icons.dart';
 
 import 'mainpage/category/events.dart';
@@ -24,7 +21,7 @@ import 'mainpage/category/contactus.dart';
 // ];
 
 
-// TODO: GÖR EN MENTI
+
 
 class MyStatefulWidget extends StatefulWidget {
   const MyStatefulWidget({Key? key}) : super(key: key);

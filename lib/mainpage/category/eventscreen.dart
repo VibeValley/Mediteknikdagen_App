@@ -33,10 +33,11 @@ class EventScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
-        backgroundColor: mainColor,
+        backgroundColor: backgroundColor,
         title: Center(
           child: GestureDetector(
             onTap: () {
@@ -54,28 +55,39 @@ class EventScreen extends StatelessWidget {
         ],
         iconTheme: const IconThemeData(color: Colors.white),
       ),
-      body: Container(
-        constraints: const BoxConstraints(minHeight: 400, maxHeight: 600),
+      body: SingleChildScrollView(
+      child: Container(
+        constraints: const BoxConstraints(minHeight: 400, maxHeight: 1000),
         decoration: BoxDecoration(
-          border: Border.all(color: mainColor, width: 2),
-          borderRadius: BorderRadius.circular(10),
+          color: const Color.fromARGB(255, 39, 56, 72),
+          borderRadius: BorderRadius.circular(13),
+          boxShadow:  [
+            BoxShadow(
+              color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.3),
+              spreadRadius: 1,
+              blurRadius: 6,
+              offset: const Offset(3, 5)),
+          ],
+          //color: mainColor,
         ),
         alignment: Alignment.topCenter,
         padding: const EdgeInsets.all(10.0),
         margin: const EdgeInsets.all(20),
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center, 
+        children: [
           Center(
             child: Container(
               margin: const EdgeInsets.all(15.0),
               child: Text(
                 title,
-                style: const TextStyle(fontSize: 40),
+                style: const TextStyle(fontSize: 40, color: mainColor),
               ),
             ),
           ),
           Text(
             description,
-            style: const TextStyle(fontSize: 14),
+            style: const TextStyle(fontSize: 14, color: Colors.white),
           ),
           LayoutBuilder(builder: (context, constraints) {
             if (date == "") {
@@ -84,7 +96,7 @@ class EventScreen extends StatelessWidget {
                   margin: const EdgeInsets.only(top: 10.0, left: 20, right: 20),
                   child: Text(
                     time,
-                    style: const TextStyle(fontSize: 15),
+                    style: const TextStyle(fontSize: 15, color: Colors.white),
                   ),
                 ),
               );
@@ -97,7 +109,7 @@ class EventScreen extends StatelessWidget {
                           const EdgeInsets.only(top: 10.0, left: 20, right: 20),
                       child: Text(
                         date,
-                        style: const TextStyle(fontSize: 15),
+                        style: const TextStyle(fontSize: 15, color: Colors.white),
                       ),
                     ),
                     Container(
@@ -105,7 +117,7 @@ class EventScreen extends StatelessWidget {
                           const EdgeInsets.only(top: 10.0, left: 20, right: 20),
                       child: Text(
                         time,
-                        style: const TextStyle(fontSize: 15),
+                        style: const TextStyle(fontSize: 15, color: Colors.white),
                       ),
                     ),
                   ]);
@@ -127,17 +139,35 @@ class EventScreen extends StatelessWidget {
               );
             }
           }),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Container(
-                margin: const EdgeInsets.only(left: 20.0, right: 20.0),
-                child: Text(
-                  descLong,
-                  style: const TextStyle(fontSize: 18, fontFamily: 'Lato'),
-                ),
-              ),
+          Flexible(
+              child: LayoutBuilder(builder: (context, constraints) {
+                if (descLong == "") {
+                  return const SizedBox.shrink();
+                } else {
+                  return Container(
+                      //color: Colors.blue,
+                      margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+                      child: Text(
+                        descLong,
+                        textAlign: TextAlign.left,
+                        style:
+                          const TextStyle(fontSize: 20, fontFamily: 'Lato', color: Colors.white),
+                      ),
+                  );
+                }
+              }),
             ),
-          ),
+          //Expanded(
+          //  child: SingleChildScrollView(
+          //    child: Container(
+          //      margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+          //      child: Text(
+          //        descLong,
+          //        style: const TextStyle(fontSize: 18, fontFamily: 'Lato', color: Colors.white),
+          //      ),
+          //    ),
+          //  ),
+          //),
           LayoutBuilder(builder: (context, constraints) {
             if (linkText == "") {
               return const SizedBox.shrink();
@@ -155,8 +185,9 @@ class EventScreen extends StatelessWidget {
             }
           }
               // Testpurpose for linking
-              ),
+        ),
         ]),
+      ),
       ),
     );
   }

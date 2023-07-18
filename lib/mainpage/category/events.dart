@@ -413,10 +413,15 @@ class _EventState extends State<Event> {
                                             right: 30,
                                             bottom: 4),
                                         decoration: BoxDecoration(
-                                          border: Border.all(
-                                              color: mainColor, width: 2),
-                                          borderRadius:
-                                              BorderRadius.circular(10),
+                                          color: const Color.fromARGB(255, 39, 56, 72),
+                                          borderRadius: BorderRadius.circular(13),
+                                          boxShadow:  [
+                                            BoxShadow(
+                                              color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.3),
+                                              spreadRadius: 1,
+                                              blurRadius: 6,
+                                              offset: const Offset(3, 5)),
+                                          ],
                                           //color: mainColor,
                                         ),
                                         child: LayoutBuilder(
@@ -429,7 +434,7 @@ class _EventState extends State<Event> {
                                                   currentEvent.title,
                                                   style: const TextStyle(
                                                     fontSize: 20,
-                                                    color: Colors.white,
+                                                    color: mainColor,
                                                     fontWeight:
                                                         FontWeight.bold,
                                                   ),
