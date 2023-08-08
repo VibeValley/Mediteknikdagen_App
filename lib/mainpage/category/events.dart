@@ -445,7 +445,6 @@ class _EventState extends State<Event> {
                                                 currentEvent.description,
                                                 style: const TextStyle(
                                                   color: Colors.white,
-                                                  
                                                 ),
                                               ),
                                               Text(

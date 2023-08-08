@@ -117,4 +117,11 @@ final List<MTDgruppen> mtdgruppen_list = [
       contac_mail: 'richard.gotthard@medieteknikdagen.se',
       contac_tel: '',
       image: './assets/MTD_bilder/Richard_.jpg'),
+  MTDgruppen(
+      name: 'Gustav Johansson',
+      role: 'App1',
+      description: '',
+      contac_mail: 'gustav.johansson@medieteknikdagen.se',
+      contac_tel: '',
+      image: './assets/MTD_bilder/johansson.jpg'),
 ];
