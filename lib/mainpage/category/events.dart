@@ -406,6 +406,7 @@ class _EventState extends State<Event> {
                                       ),
                                     
                                     Container( //Detta är container för varje objekt
+                                      width: 500,
                                         padding: const EdgeInsets.all(10),
                                         margin: const EdgeInsets.only(
                                             top: 4,
@@ -440,61 +441,75 @@ class _EventState extends State<Event> {
                                                   ),
                                                 ),
                                               ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.spaceBetween,
-                                                children: [
-                                                  Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment.start,
-                                                    children: [
-                                                      //Text( //Här är daturmet
-                                                      //  currentEvent.date,
-                                                      //  style: const TextStyle(
-                                                      //    fontSize: 20,
-                                                      //    color: Colors.white,
-                                                      //    fontWeight:
-                                                      //        FontWeight.bold,
-                                                      //  ),
-                                                      //),
-                                                      Text( //Här är tiden
-                                                        currentEvent.time,
-                                                        style: const TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 17,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Container(
-                                                    width: 160,
-                                                    margin: const EdgeInsets.only(
-                                                      right: 10,
-                                                    ),
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment.start,
-                                                      children: [
-                                                        //Text( //Här är titeln
-                                                        //  currentEvent.title,
-                                                        //  style: const TextStyle(
-                                                        //    fontSize: 20,
-                                                        //    color: Colors.white,
-                                                        //    fontWeight:
-                                                        //        FontWeight.bold,
-                                                        //  ),
-                                                        //),
-                                                        Text( //Här är beskrivningen
-                                                          currentEvent.description,
-                                                          style: const TextStyle(
-                                                            color: Colors.white,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ],
+                                              Text(
+                                                currentEvent.description,
+                                                style: const TextStyle(
+                                                  color: Colors.white,
+                                                  
+                                                ),
                                               ),
+                                              Text(
+                                                currentEvent.time,
+                                                style: const TextStyle(
+                                                  color: Colors.white,
+
+                                                ),
+                                              ),
+                                              //Row(
+                                              //  mainAxisAlignment:
+                                              //      MainAxisAlignment.spaceBetween,
+                                              //  children: [
+                                              //    Column(
+                                              //      crossAxisAlignment:
+                                              //          CrossAxisAlignment.start,
+                                              //      children: [
+                                              //        //Text( //Här är daturmet
+                                              //        //  currentEvent.date,
+                                              //        //  style: const TextStyle(
+                                              //        //    fontSize: 20,
+                                              //        //    color: Colors.white,
+                                              //        //    fontWeight:
+                                              //        //        FontWeight.bold,
+                                              //        //  ),
+                                              //        //),
+                                              //        Text( //Här är tiden
+                                              //          currentEvent.time,
+                                              //          style: const TextStyle(
+                                              //            color: Colors.white,
+                                              //            fontSize: 17,
+                                              //          ),
+                                              //        ),
+                                              //      ],
+                                              //    ),
+                                              //    Container(
+                                              //      width: 160,
+                                              //      margin: const EdgeInsets.only(
+                                              //        right: 10,
+                                              //      ),
+                                              //      child: Column(
+                                              //        crossAxisAlignment:
+                                              //            CrossAxisAlignment.start,
+                                              //        children: [
+                                              //          //Text( //Här är titeln
+                                              //          //  currentEvent.title,
+                                              //          //  style: const TextStyle(
+                                              //          //    fontSize: 20,
+                                              //          //    color: Colors.white,
+                                              //          //    fontWeight:
+                                              //          //        FontWeight.bold,
+                                              //          //  ),
+                                              //          //),
+                                              //          Text( //Här är beskrivningen
+                                              //            currentEvent.description,
+                                              //            style: const TextStyle(
+                                              //              color: Colors.white,
+                                              //            ),
+                                              //          ),
+                                              //        ],
+                                              //      ),
+                                              //    ),
+                                              //  ],
+                                              //),
                                             ],
                                           );
                                         })),
