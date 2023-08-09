@@ -179,7 +179,9 @@ class _EventState extends State<Event> {
         //SizedBox(
         //height: MediaQuery.of(context).size.height * 0.75, // total height
         flex: 8,
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
+        child: Column(
+          mainAxisSize: MainAxisSize.min, 
+          children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

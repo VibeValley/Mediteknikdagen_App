@@ -104,9 +104,9 @@ class _TestFrameViewer extends State<TestFrame> {
 
       return Expanded(
         flex: 8,
-        child: Center(
+        //child: Center(
           child: Column(
-            mainAxisSize: MainAxisSize.min
+            //mainAxisSize: MainAxisSize.min
             children: [
               Container(
                           //padding:
@@ -212,13 +212,8 @@ class _TestFrameViewer extends State<TestFrame> {
                                 return const Text('Loading...');
                               }
                             })),
-                            ],
-                          )
-        
-                        ),
-                            Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
+                           
+                            
                                 Container(
                                   padding: const EdgeInsets.only(left: 14.0),
                                   color: backgroundColor,
@@ -234,8 +229,13 @@ class _TestFrameViewer extends State<TestFrame> {
                                   ),
                                   
                                 ),
+                                 ],
+                          )
+        
+                        ),
+                      
                                 Flexible(
-                                  fit: FlexFit.loose,
+                                  //fit: FlexFit.loose,
                                   child: FutureBuilder<List>(
                                     future: readEvents_preMTD_fut(),
                                     builder: (context, snapshot){
@@ -294,9 +294,11 @@ class _TestFrameViewer extends State<TestFrame> {
                                                     children: [
                                                        LayoutBuilder(builder: (context, constraints){
                                                           //var result = lastEvent.date.compareTo(currentEvent.date);
+                                                          if(eventsData[index].date == "28 Nov"){
+                                                          //print(eventsData[index].date);
                                                           if(index != 0 && eventsData[index].date == eventsData[index-1].date){
                                                             return const Text(' ');
-                                                          }
+                                                          }              
 
                                                             //lastDate = currentEvent.date;
                                                             return(Container(
@@ -318,7 +320,10 @@ class _TestFrameViewer extends State<TestFrame> {
                                                                 ],
                                                               ),
                                                             ));
+                                                          }
+                                                          return const Text(' ');
                                                         },
+                                                        
                                                         ),
 
                                                       Container( //Detta är container för varje objekt
@@ -383,13 +388,12 @@ class _TestFrameViewer extends State<TestFrame> {
                                     }
                                   )
                                 ),
-                              ],
-                            ),
+                             
                             
                  
             ],
           ),
-        ),
+        //),
       );
 
 
