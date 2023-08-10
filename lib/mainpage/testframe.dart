@@ -291,10 +291,11 @@ class _TestFrameViewer extends State<TestFrame> {
 
                                                   },
                                                   child: Column(
+                                                    mainAxisAlignment: MainAxisAlignment.start,
                                                     children: [
                                                        LayoutBuilder(builder: (context, constraints){
                                                           //var result = lastEvent.date.compareTo(currentEvent.date);
-                                                          if(eventsData[index].date == "28 Nov"){
+                                                          if(eventsData[index].date == "29 Nov"){
                                                           //print(eventsData[index].date);
                                                           if(index != 0 && eventsData[index].date == eventsData[index-1].date){
                                                             return const Text(' ');
@@ -321,12 +322,13 @@ class _TestFrameViewer extends State<TestFrame> {
                                                               ),
                                                             ));
                                                           }
-                                                          return const Text(' ');
+                                                          return const SizedBox.shrink();
                                                         },
                                                         
                                                         ),
-
-                                                      Container( //Detta är container för varje objekt
+                                                      LayoutBuilder(builder: (context, constraints){
+                                                      if(eventsData[index].date == "29 Nov"){
+                                                      return Container( //Detta är container för varje objekt
                                                         width: 500,
                                                           padding: const EdgeInsets.all(10),
                                                           margin: const EdgeInsets.only(
@@ -377,7 +379,15 @@ class _TestFrameViewer extends State<TestFrame> {
                                                                 ),
                                                                 ],
                                                             );
-                                                          })),
+                                                          }));
+                                                      }
+                                                      else{
+                                                        return const SizedBox.shrink();
+                                                      }
+                                                      }
+                                                      )
+                                                          //else
+                                                          //const Text(" "),
                                                     ],
                                                   ));
                                             });
