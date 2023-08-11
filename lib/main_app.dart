@@ -8,6 +8,7 @@ import 'package:mtd_app/mainpage/gridviewer.dart';
 import 'package:mtd_app/mainpage/testframe.dart';
 import 'package:mtd_app/mainpage/post_feed.dart';
 import 'package:mtd_app/style/colors.dart';
+import 'package:mtd_app/mainpage/quiz.dart';
 
 import '../icons/custom_app_icons.dart';
 
@@ -60,10 +61,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       Event(),
       //Settings(),
     ]),
-    //const Column(children:[
-    //  //TestFrame(),
-    //  TestFrame(),
-    //]),
+    const Column(children:[
+      //TestFrame(),
+      Quiz(),
+    ]),
     const Column(children:[
       //TestFrame(),
       PostFeed(),
@@ -246,6 +247,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.event,
+                ),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.border_color_rounded,
                 ),
               ),
               //BottomNavigationBarItem(
