@@ -1,8 +1,50 @@
-import 'dart:async';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
-import 'package:mtd_app/mainpage/category/eventscreen.dart';
 import 'package:mtd_app/style/colors.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:async';
+
+class Svar_Rebus {
+  final String code;
+  String image;
+  final String order;
+
+  Svar_Rebus({
+    required this.code,
+    this.image = "",
+    this.order = "",
+  });
+
+  Map<String, dynamic> toJson() => {
+        'code': code,
+        'image': image,
+        'order': order,
+      };
+
+  static Svar_Rebus fromJson(Map<String, dynamic> json) => Svar_Rebus(
+        code: json['code'],
+        image: json['image'],
+        order: json['order'],
+      );
+}
+
+Stream<List<Svar_Rebus>> readSvar() => FirebaseFirestore.instance
+    .collection("Rebus")
+    .orderBy("order")
+    .snapshots()
+    .map((snapshot) => snapshot.docs
+        .map((doc) => Svar_Rebus.fromJson(doc.data()))
+        .toList());
+
+Future<List> readSvar_fut() async {
+  var notifs = await FirebaseFirestore.instance
+      .collection("Rebus")
+      .orderBy("order")
+      .get();
+
+      return List<Svar_Rebus>.from(
+      notifs.docs.map((doc) => Svar_Rebus.fromJson(doc.data())).toList());
+}
 
 class Quiz extends StatefulWidget {
   const Quiz({Key? key}) : super(key: key);
@@ -13,10 +55,10 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
 
-  TextEditingController _searchController1 = TextEditingController();
-  TextEditingController _searchController2 = TextEditingController();
-  TextEditingController _searchController3 = TextEditingController();
-  TextEditingController _searchController4 = TextEditingController();
+  final TextEditingController _searchController1 = TextEditingController();
+  final TextEditingController _searchController2 = TextEditingController();
+  final TextEditingController _searchController3 = TextEditingController();
+  final TextEditingController _searchController4 = TextEditingController();
   String searchText1 = '';
   String searchText2 = '';
   String searchText3 = '';
@@ -47,8 +89,7 @@ class _QuizState extends State<Quiz> {
                         fontWeight: FontWeight.w900,
                         fontSize: 40,
                         color: Colors.white,
-                      ),
-                      
+                      ),                      
                     ),
                   ),
               ),
@@ -237,6 +278,52 @@ class _QuizState extends State<Quiz> {
                   
                   child: const Text('Lös in'),
                 ),
+              ),
+              Expanded(
+                child: FutureBuilder<List>(
+                  future: readSvar_fut(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasError) {
+                      return const Text(
+                          'Something went wrong!   '); //${snapshot.error}
+                    } else if (snapshot.hasData) {
+                      var image = snapshot.data!;
+                      var order = snapshot.data!;
+                      var eventsData = snapshot.data!;
+
+                      order = order
+                        .map((element) {
+                          return element;
+                        })
+                        .toSet()
+                        .toList();
+
+                        return ListView.builder(
+                          itemCount: eventsData.length,
+                          itemBuilder: (context, index) {
+                            final currentSvar = eventsData[index];
+
+                            return Inkwell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Svar_Rebus(
+                                      code: currentSvar.code,
+                                      image: currentSvar.image,
+                                      order: currentSvar.order,
+                                    ),
+                                  ),
+                                );
+
+                              },
+                            );
+                          },
+                        )
+
+                    }
+                  },
+                )
               ),
         ],
         )
