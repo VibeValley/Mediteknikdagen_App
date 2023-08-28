@@ -395,7 +395,8 @@ class _GridViewerState extends State<GridViewer> {
                         itemBuilder: (context, index) {
                           final currentComp = companyss[index];
 
-                          return GestureDetector(onTap: () {
+                          return GestureDetector(
+                            onTap: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -411,7 +412,8 @@ class _GridViewerState extends State<GridViewer> {
                                 ),
                               ),
                             );
-                          }, child:
+                          }, 
+                          child:
                               LayoutBuilder(builder: (context, constraints) {
                             if (currentComp.image == "") {
                               return Container(

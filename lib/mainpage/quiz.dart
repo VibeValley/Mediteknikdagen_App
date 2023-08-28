@@ -2,29 +2,36 @@
 import 'package:flutter/material.dart';
 import 'package:mtd_app/style/colors.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_scroll_shadow/flutter_scroll_shadow.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
 
 class Svar_Rebus {
   final String code;
   String image;
   final String order;
+  bool codeDone;
 
   Svar_Rebus({
     required this.code,
     this.image = "",
     this.order = "",
+    this.codeDone = false,
   });
 
   Map<String, dynamic> toJson() => {
         'code': code,
         'image': image,
         'order': order,
+        'codeDone': codeDone,
       };
 
   static Svar_Rebus fromJson(Map<String, dynamic> json) => Svar_Rebus(
         code: json['code'],
         image: json['image'],
         order: json['order'],
+        codeDone: json['codeDone'],
       );
 }
 
@@ -53,7 +60,33 @@ class Quiz extends StatefulWidget {
   State<Quiz> createState() => _QuizState();
 }
 
+
+
 class _QuizState extends State<Quiz> {
+  late List<bool> codeDone = [false, false, false, false, false, false];
+  final int listLength = 4;
+
+  @override
+  void initState() {
+    super.initState();
+    loadBoolList();
+  }
+
+  Future<void> loadBoolList() async {
+    final prefs = await SharedPreferences.getInstance();
+    codeDone = List.generate(listLength, (index) {
+      return prefs.getBool('bool_$index') ?? false;
+    });
+    setState(() {});
+  }
+
+  Future<void> saveBoolList() async {
+    final prefs = await SharedPreferences.getInstance();
+    for (int i = 0; i < listLength; i++) {
+      await prefs.setBool('bool_$i', codeDone[i]);
+    }
+  }
+
 
   final TextEditingController _searchController1 = TextEditingController();
   final TextEditingController _searchController2 = TextEditingController();
@@ -63,6 +96,7 @@ class _QuizState extends State<Quiz> {
   String searchText2 = '';
   String searchText3 = '';
   String searchText4 = '';
+  String combinedText = '';
   FocusNode field1 = FocusNode();
   FocusNode field2 = FocusNode();
   FocusNode field3 = FocusNode();
@@ -71,6 +105,23 @@ class _QuizState extends State<Quiz> {
   bool isEmpty2 = true;
   bool isEmpty3 = true;
   bool isEmpty4 = true;
+
+//  Future<void> updateFirestoreDocument() async {
+//
+//  try {
+//    await FirebaseFirestore.instance
+//    .collection('Rebus')
+//    .doc('Fon4swYolHbanmyJ9vtG')
+//    .update({
+//      'codeDone': true,
+//    });
+//
+//    print('Document updated successfully');
+//  } catch (e) {
+//    print('Error updating document: $e');
+//  }
+//  setState(() {});
+//}
   
 
   @override
@@ -191,7 +242,7 @@ class _QuizState extends State<Quiz> {
                               FocusScope.of(context).requestFocus(field4);
                               isEmpty3 = false;
                               setState(() {
-                                searchText2 = value;
+                                searchText3 = value;
                               });
                             },
                             decoration: InputDecoration(
@@ -230,7 +281,7 @@ class _QuizState extends State<Quiz> {
                               isEmpty4 = false;
 
                               setState(() {
-                                searchText2 = value;
+                                searchText4 = value;
                               });
                             },
                             decoration: InputDecoration(
@@ -266,6 +317,11 @@ class _QuizState extends State<Quiz> {
                   ),
                   onPressed: () {
                     if(!isEmpty1 && !isEmpty2 && !isEmpty3 && !isEmpty4){
+                      setState(() {
+                        combinedText = searchText1 + searchText2 + searchText3 + searchText4;
+                        //codeDone[0] = true;
+                      });
+                      
                       _searchController1.clear();
                       _searchController2.clear();
                       _searchController3.clear();
@@ -287,7 +343,6 @@ class _QuizState extends State<Quiz> {
                       return const Text(
                           'Something went wrong!   '); //${snapshot.error}
                     } else if (snapshot.hasData) {
-                      var image = snapshot.data!;
                       var order = snapshot.data!;
                       var eventsData = snapshot.data!;
 
@@ -298,35 +353,82 @@ class _QuizState extends State<Quiz> {
                         .toSet()
                         .toList();
 
-                        return ListView.builder(
-                          itemCount: eventsData.length,
-                          itemBuilder: (context, index) {
-                            final currentSvar = eventsData[index];
-
-                            return Inkwell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Svar_Rebus(
-                                      code: currentSvar.code,
-                                      image: currentSvar.image,
-                                      order: currentSvar.order,
-                                    ),
-                                  ),
+                        return ScrollShadow(
+                          child: GridView.builder(
+                            physics: const AlwaysScrollableScrollPhysics(),
+                            padding: const EdgeInsets.all(20.0),
+                            gridDelegate:
+                              const SliverGridDelegateWithMaxCrossAxisExtent(
+                                maxCrossAxisExtent: 200,
+                                childAspectRatio: 3 / 2,
+                                crossAxisSpacing: 20,
+                                mainAxisSpacing: 20),
+                            itemCount: eventsData.length,
+                            itemBuilder: (context, index) {
+                              final currentSvar = eventsData[index];
+//
+                            return GestureDetector(
+                              child: LayoutBuilder(builder: (context, constraints) {
+                            if (currentSvar.image == "") {
+                              return Container(
+                                  alignment: Alignment.center,
+                                  //  color: Colors.grey.withOpacity(0.2),
+                                  child: Text(currentSvar.order,
+                                      style: const TextStyle(fontSize: 12)));
+                            } else if (currentSvar.code == combinedText){
+                              
+                              codeDone[int.parse(currentSvar.order)] = true;
+                              saveBoolList();
+                              
+                              print(codeDone);
+                              return Container(
+                                
+                                decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: CachedNetworkImageProvider(
+                                      currentSvar.image),
+                                  // fit: BoxFit.cover,
+                                ),
+                              ));
+                            }
+                            else if(codeDone[int.parse(currentSvar.order)] == true){
+                              return Container(
+                                
+                                decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: CachedNetworkImageProvider(
+                                      currentSvar.image),
+                                  // fit: BoxFit.cover,
+                                ),
+                              ));
+                            }
+                            else if(currentSvar.order != ""){
+                              return Text(
+                                currentSvar.order,
+                                style: const TextStyle(color: Colors.white),
                                 );
-
-                              },
+                            }
+                            else{
+                              return const Text(
+                                  'hej',
+                                  style:TextStyle(color: Colors.white)
+                              );
+                            }
+                          })
+//
                             );
+                              
                           },
-                        )
-
+                        ));
                     }
-                  },
+                    else{
+                      return const Text('Loading...');
+                    }
+                  }
                 )
-              ),
-        ],
-        )
+              )
+        ]
+      )
     );
-  }
+}
 }
