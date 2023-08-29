@@ -63,8 +63,8 @@ class Quiz extends StatefulWidget {
 
 
 class _QuizState extends State<Quiz> {
-  late List<bool> codeDone = [false, false, false, false, false, false];
-  final int listLength = 4;
+  late List<bool> codeDone = [false, false, false, false, false, false, false, false, false];
+  final int listLength = 9;
 
   @override
   void initState() {
@@ -380,33 +380,37 @@ class _QuizState extends State<Quiz> {
                               codeDone[int.parse(currentSvar.order)] = true;
                               saveBoolList();
                               
-                              print(codeDone);
-                              return Container(
+                              //print(codeDone);
+                              return Container(                               
                                 
                                 decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: CachedNetworkImageProvider(
                                       currentSvar.image),
-                                  // fit: BoxFit.cover,
+                                  fit: BoxFit.cover,
                                 ),
                               ));
                             }
                             else if(codeDone[int.parse(currentSvar.order)] == true){
                               return Container(
-                                
                                 decoration: BoxDecoration(
+                                  
                                 image: DecorationImage(
                                   image: CachedNetworkImageProvider(
                                       currentSvar.image),
-                                  // fit: BoxFit.cover,
+                                   fit: BoxFit.cover,
                                 ),
                               ));
                             }
                             else if(currentSvar.order != ""){
-                              return Text(
-                                currentSvar.order,
-                                style: const TextStyle(color: Colors.white),
-                                );
+                              int temp = int.parse(currentSvar.order) + 1;
+                              return Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  temp.toString(),
+                                  style: const TextStyle(color: Colors.white,fontSize: 40),
+                                  ),
+                              );
                             }
                             else{
                               return const Text(
