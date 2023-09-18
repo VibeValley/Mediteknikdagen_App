@@ -4,11 +4,15 @@ import 'package:mtd_app/navigation_not.dart';
 import 'package:mtd_app/splash_page.dart';
 import 'mainpage/firebase_options.dart';
 
+//import 'api/firebase_api.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  //await FirebaseApi().initNotifications();
+
 
   runApp(const MyApp());
 }

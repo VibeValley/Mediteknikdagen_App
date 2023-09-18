@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+//NOTIFICATIONS
 import 'package:mtd_app/notification.dart';
 
 import 'package:mtd_app/mainpage/gridviewer.dart';
@@ -74,6 +75,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   @override
   void initState() {
+
+    //NOTIFICATION
     final firebaseMessaging = FCM();
 
     firebaseMessaging.setPermission();
