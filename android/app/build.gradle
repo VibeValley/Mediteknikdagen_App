@@ -53,7 +53,7 @@ android {
         multiDexEnabled true
         applicationId "dev.widdyjp.mounts_of_the_world"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 4
         versionName '1.0'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
