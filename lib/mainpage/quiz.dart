@@ -7,13 +7,13 @@ import 'package:flutter_scroll_shadow/flutter_scroll_shadow.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
 
-class Svar_Rebus {
+class SvarRebus {
   final String code;
   String image;
   final String order;
   bool codeDone;
 
-  Svar_Rebus({
+  SvarRebus({
     required this.code,
     this.image = "",
     this.order = "",
@@ -27,7 +27,7 @@ class Svar_Rebus {
         'codeDone': codeDone,
       };
 
-  static Svar_Rebus fromJson(Map<String, dynamic> json) => Svar_Rebus(
+  static SvarRebus fromJson(Map<String, dynamic> json) => SvarRebus(
         code: json['code'],
         image: json['image'],
         order: json['order'],
@@ -35,22 +35,22 @@ class Svar_Rebus {
       );
 }
 
-Stream<List<Svar_Rebus>> readSvar() => FirebaseFirestore.instance
+Stream<List<SvarRebus>> readSvar() => FirebaseFirestore.instance
     .collection("Rebus")
     .orderBy("order")
     .snapshots()
     .map((snapshot) => snapshot.docs
-        .map((doc) => Svar_Rebus.fromJson(doc.data()))
+        .map((doc) => SvarRebus.fromJson(doc.data()))
         .toList());
 
-Future<List> readSvar_fut() async {
+Future<List> readSvarFut() async {
   var notifs = await FirebaseFirestore.instance
       .collection("Rebus")
       .orderBy("order")
       .get();
 
-      return List<Svar_Rebus>.from(
-      notifs.docs.map((doc) => Svar_Rebus.fromJson(doc.data())).toList());
+      return List<SvarRebus>.from(
+      notifs.docs.map((doc) => SvarRebus.fromJson(doc.data())).toList());
 }
 
 class Quiz extends StatefulWidget {
@@ -337,7 +337,7 @@ class _QuizState extends State<Quiz> {
               ),
               Expanded(
                 child: FutureBuilder<List>(
-                  future: readSvar_fut(),
+                  future: readSvarFut(),
                   builder: (context, snapshot) {
                     if (snapshot.hasError) {
                       return const Text(

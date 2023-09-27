@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
+//import 'package:firebase_analytics/firebase_analytics.dart';
 
 // import 'package:flutter/material.dart';
 // import 'package:mtd_app/navigation_not.dart';
@@ -15,8 +15,8 @@ Future<void> onBackgroundMessage(RemoteMessage message) async {
   //("message recieved 123");
   if (message.data.containsKey('data')) {
     // Handle data message
-    final data = message.data['data'];
-    print(data);
+    //final data = message.data['data'];
+    //print(data);
     
   }
 
@@ -46,8 +46,8 @@ class FCM {
       provisional: false,
       sound: true,
     );
-    final fCMToken = await _firebaseMessaging.getToken();
-    print('Token $fCMToken');
+    /* final fCMToken = await _firebaseMessaging.getToken();
+    print('Token $fCMToken'); */
   }
 
   Future addToNotification(

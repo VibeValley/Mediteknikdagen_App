@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:mtd_app/mainpage/notificationscreen.dart';
+//import 'package:mtd_app/mainpage/notificationscreen.dart';
 
 
 Future<void> handleBackgroundMessage(RemoteMessage message) async{
@@ -24,8 +24,8 @@ class FirebaseApi{
 
   Future<void> initNotifications() async{
     await _firebaseMessaging.requestPermission();
-    final fCMToken = await _firebaseMessaging.getToken();
-    print('Token: $fCMToken');
+    //final fCMToken = await _firebaseMessaging.getToken();
+    //print('Token: $fCMToken');
     FirebaseMessaging.onBackgroundMessage((handleBackgroundMessage));
   }
 }

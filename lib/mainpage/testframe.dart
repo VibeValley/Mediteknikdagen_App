@@ -14,10 +14,13 @@ class Events_preMTD {
   final String date;
   final String description;
   Timestamp sorttime;
+  // ignore: non_constant_identifier_names
   String desc_long;
   String image;
   String url;
+  // ignore: non_constant_identifier_names
   String url_native;
+  // ignore: non_constant_identifier_names
   String link_text;
 
   Events_preMTD({
@@ -26,10 +29,13 @@ class Events_preMTD {
     this.date = "",
     this.description = "",
     required this.sorttime,
+    // ignore: non_constant_identifier_names
     this.desc_long = "",
     this.image = "",
     this.url = "",
+    // ignore: non_constant_identifier_names
     this.url_native = "",
+    // ignore: non_constant_identifier_names
     this.link_text = "",
   });
 
@@ -67,7 +73,7 @@ Stream<List<Company>> readCompanyWelcome1() => FirebaseFirestore.instance
     .map((snapshot) =>
         snapshot.docs.map((doc) => Company.fromJson(doc.data())).toList());
 
-Future<List> readEvents_MTD_fut() async {
+Future<List> readEventsMTDFut() async {
   var notifs = await FirebaseFirestore.instance
       .collection("Events_preMTD")
       .where("isMTD", isEqualTo: true)
