@@ -354,6 +354,7 @@ class _QuizState extends State<Quiz> {
                         .toList();
 
                         return ScrollShadow(
+                          color: backgroundColor,
                           child: GridView.builder(
                             physics: const AlwaysScrollableScrollPhysics(),
                             padding: const EdgeInsets.all(20.0),
