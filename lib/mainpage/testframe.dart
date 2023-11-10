@@ -7,6 +7,7 @@ import '../icons/custom_app_icons.dart';
 import 'package:mtd_app/mainpage/companyscreen.dart';
 import 'package:mtd_app/models/companies_firebase.dart';
 import 'package:mtd_app/mainpage/category/eventscreen.dart';
+import 'package:intl/intl.dart';
 
 class Events_preMTD {
   final String title;
@@ -283,7 +284,10 @@ class _TestFrameViewer extends State<TestFrame> {
                                             itemBuilder: (context, index) {
                                               final currentEvent = eventsData[index];
                                               //print(index);
-
+                                              // FIXA DATE HÄR
+                                              DateTime todayDate = DateTime.now();
+                                              String formattedDate = DateFormat('d MMM').format(todayDate);
+                                              print(formattedDate);
 
                                               // List hall = eventsData[index].contains("date");
                                               return InkWell(
@@ -307,11 +311,14 @@ class _TestFrameViewer extends State<TestFrame> {
 
                                                   },
                                                   child: Column(
+
+
                                                     mainAxisAlignment: MainAxisAlignment.start,
                                                     children: [
                                                        LayoutBuilder(builder: (context, constraints){
                                                           //var result = lastEvent.date.compareTo(currentEvent.date);
-                                                          if(eventsData[index].date == "29 Nov"){
+                                                          if(eventsData[index].date == formattedDate){
+                                                            
                                                           //print(eventsData[index].date);
                                                           if(index != 0 && eventsData[index].date == eventsData[index-1].date){
                                                             return const Text(' ');
@@ -343,7 +350,7 @@ class _TestFrameViewer extends State<TestFrame> {
                                                         
                                                         ),
                                                       LayoutBuilder(builder: (context, constraints){
-                                                      if(eventsData[index].date == "29 Nov"){
+                                                      if(eventsData[index].date == formattedDate){
                                                       return Container( //Detta är container för varje objekt
                                                         width: 500,
                                                           padding: const EdgeInsets.all(10),
