@@ -27,10 +27,11 @@ class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
-        backgroundColor: mainColor,
+        backgroundColor: backgroundColor,
         title: Center(
           child: GestureDetector(
             onTap: () {
@@ -79,7 +80,7 @@ class NotificationScreen extends StatelessWidget {
                     margin: const EdgeInsets.all(20.0),
                     child: Text(
                       title,
-                      style: const TextStyle(fontSize: 40),
+                      style: const TextStyle(fontSize: 40, color: Colors.white),
                     ),
                   ),
                 ),
@@ -92,7 +93,7 @@ class NotificationScreen extends StatelessWidget {
                   margin: const EdgeInsets.only(left: 20.0, right: 20.0),
                   child: Text(
                     description,
-                    style: const TextStyle(fontSize: 18, fontFamily: 'Lato'),
+                    style: const TextStyle(fontSize: 18, fontFamily: 'Lato', color: Colors.white),
                   ),
                 ),
               ),

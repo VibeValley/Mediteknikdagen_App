@@ -54,7 +54,7 @@ class Notification {
 
 Stream<List<Notification>> readNotificationStream() => FirebaseFirestore
     .instance
-    .collection("Notifications")
+    .collection("Notifications2023")
     .orderBy("sorttime", descending: true)
     .snapshots(includeMetadataChanges: true)
     .map((snapshot) =>
@@ -63,7 +63,7 @@ Stream<List<Notification>> readNotificationStream() => FirebaseFirestore
 
 Future<List> readNotificationFut() async {
   var notifs = await FirebaseFirestore.instance
-      .collection("Notifications")
+      .collection("Notifications2023")
       .orderBy("sorttime", descending: true)
       .get();
 
