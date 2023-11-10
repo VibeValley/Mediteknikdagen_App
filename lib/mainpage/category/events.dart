@@ -156,8 +156,8 @@ class _EventState extends State<Event> {
   //Stream<List<Events_preMTD>> setEvent = readEvents_preMTD();
   Future<List> setEvent = readEvents_preMTD_fut();
 
-  Color mtd_color = Colors.white;
-  Color premtd_color = Colors.deepOrange.withOpacity(0.1);
+  Color mtd_color = backgroundColor;
+  Color premtd_color = Colors.deepOrange;
 
   String rubrik = "PreMTD";
 
@@ -209,7 +209,7 @@ class _EventState extends State<Event> {
                       setEvent = readEvents_preMTD_fut();
                       premtd_color = Colors.deepOrange.withOpacity(1);
                       mtd_color = backgroundColor;
-                      rubrik = "PreeeMTD";
+                      rubrik = "PreMTD";
                     });
                   }),
               InkWell(
@@ -236,7 +236,7 @@ class _EventState extends State<Event> {
                       setEvent = readEvents_MTD_fut();
                       premtd_color = backgroundColor;
                       mtd_color = Colors.deepOrange.withOpacity(1);
-                      rubrik = "MTTTD";
+                      rubrik = "MTD";
                     });
                   }),
             ],

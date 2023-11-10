@@ -145,12 +145,13 @@ class _QuizState extends State<Quiz> {
                   ),
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   
                   Flexible(
                     
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 34.5),
+                      padding: const EdgeInsets.only(left: 0),//(left: 34.5),
                       child: Container(
                         width: 55,
                         padding: const EdgeInsets.all(5),
@@ -188,7 +189,7 @@ class _QuizState extends State<Quiz> {
                   Flexible(
                     
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 34.5),
+                      padding: const EdgeInsets.only(left: 0),//(left: 34.5),
                       child: Container(
                         width: 55,
                         padding: const EdgeInsets.all(5),
@@ -226,7 +227,7 @@ class _QuizState extends State<Quiz> {
                   Flexible(
                     
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 34.5),
+                      padding: const EdgeInsets.only(left: 0),//(left: 34.5),
                       child: Container(
                         width: 55,
                         padding: const EdgeInsets.all(5),
@@ -264,7 +265,7 @@ class _QuizState extends State<Quiz> {
                   Flexible(
                     
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 34.5),
+                      padding: const EdgeInsets.only(left: 0),//(left: 34.5),
                       child: Container(
                         width: 55,
                         padding: const EdgeInsets.all(5),
