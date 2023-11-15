@@ -101,7 +101,7 @@ class Events_preMTD {
 //             .toList());
 
 Stream<List<Events_preMTD>> readEvents_preMTD() => FirebaseFirestore.instance
-    .collection("Events_preMTD")
+    .collection("Events_preMTD2023")
     .where("isPreMTD", isEqualTo: true)
     .orderBy("sorttime")
     .snapshots()
@@ -110,7 +110,7 @@ Stream<List<Events_preMTD>> readEvents_preMTD() => FirebaseFirestore.instance
         .toList());
 
 Stream<List<Events_preMTD>> readEvents_MTD() => FirebaseFirestore.instance
-    .collection("Events_preMTD")
+    .collection("Events_preMTD2023")
     .where("isMTD", isEqualTo: true)
     .orderBy("sorttime")
     .snapshots()
@@ -120,7 +120,7 @@ Stream<List<Events_preMTD>> readEvents_MTD() => FirebaseFirestore.instance
 
 Future<List> readEvents_MTD_fut() async {
   var notifs = await FirebaseFirestore.instance
-      .collection("Events_preMTD")
+      .collection("Events_preMTD2023")
       .where("isMTD", isEqualTo: true)
       .orderBy("sorttime")
       .get();
@@ -131,7 +131,7 @@ Future<List> readEvents_MTD_fut() async {
 
 Future<List> readEvents_preMTD_fut() async {
   var notifs = await FirebaseFirestore.instance
-      .collection("Events_preMTD")
+      .collection("Events_preMTD2023")
       .where("isPreMTD", isEqualTo: true)
       .orderBy("sorttime")
       .get();
