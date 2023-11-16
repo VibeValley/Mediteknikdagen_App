@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mtd_app/mainpage/notificationscreen.dart';
+import 'package:mtd_app/style/colors.dart';
 
 
 
@@ -171,7 +172,7 @@ class _PostFeedViewer extends State<PostFeed> {
                             Text(
                               currentNotif.title,
                               style: const TextStyle(
-                                color: Colors.black,
+                                color: mainColor,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -180,7 +181,7 @@ class _PostFeedViewer extends State<PostFeed> {
                               children: [
                                 Text(
                                   currentNotif.link,
-                                  style: const TextStyle(color: Colors.black),
+                                  style: const TextStyle(color: mainColor),
                                 ),
                               ],
                             ),

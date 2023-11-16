@@ -52,8 +52,16 @@ class NotificationScreen extends StatelessWidget {
       body: Container(
         constraints: const BoxConstraints(minHeight: 400, maxHeight: 600),
         decoration: BoxDecoration(
-          border: Border.all(color: mainColor, width: 2),
+          //border: Border.all(color: mainColor, width: 2),
           borderRadius: BorderRadius.circular(10),
+          color: const Color.fromARGB(255, 39, 56, 72),
+          boxShadow:  [
+            BoxShadow(
+              color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.3),
+              spreadRadius: 1,
+              blurRadius: 6,
+              offset: const Offset(3, 5)),
+          ],
         ),
         alignment: Alignment.topCenter,
         padding: const EdgeInsets.all(10.0),

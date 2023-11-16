@@ -32,7 +32,7 @@ class ContactUsState extends State<ContactUs> {
   // Maintain current index of carousel
   int _selectedIndex = 0;
 
-  String _selectedIndexName = "Filip";
+  String _selectedIndexName = "Sebastian Lindgren";
   String _selectedIndexPost = "Projektledare";
   String _selectedIndexMail = "Projektledare";
 

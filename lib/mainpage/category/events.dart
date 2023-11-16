@@ -236,7 +236,7 @@ class _EventState extends State<Event> {
                       setEvent = readEvents_MTD_fut();
                       premtd_color = backgroundColor;
                       mtd_color = Colors.deepOrange.withOpacity(1);
-                      rubrik = "MTD";
+                      rubrik = "Mässdagen";
                     });
                   }),
             ],
