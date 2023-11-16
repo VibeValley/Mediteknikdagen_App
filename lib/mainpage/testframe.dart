@@ -287,7 +287,7 @@ class _TestFrameViewer extends State<TestFrame> {
                                               // FIXA DATE HÄR
                                               DateTime todayDate = DateTime.now();
                                               String formattedDate = DateFormat('d MMM').format(todayDate);
-                                              print(formattedDate);
+                                              //print(formattedDate);
 
                                               // List hall = eventsData[index].contains("date");
                                               return InkWell(
@@ -344,7 +344,7 @@ class _TestFrameViewer extends State<TestFrame> {
                                                                 ],
                                                               ),
                                                             ));
-                                                          }
+                                                          } 
                                                           return const SizedBox.shrink();
                                                         },
                                                         
