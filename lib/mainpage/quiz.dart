@@ -164,11 +164,37 @@ class _QuizState extends State<Quiz> {
                             focusNode: field1,
                             controller: _searchController1,
                             onChanged: (value) {
-                              FocusScope.of(context).requestFocus(field2);
-                              isEmpty1 = false;
-                              setState(() {
-                                searchText1 = value;
-                              });
+                              //-----
+                              if(value.isNotEmpty && int.tryParse(value) != null){
+                                FocusScope.of(context).requestFocus(field2);
+                              }
+                              else if(value.isNotEmpty){
+                                //print('inne i else if');
+                                FocusScope.of(context).requestFocus(field2);
+                              }
+                              else{
+                                
+                                isEmpty1 = value.isEmpty;
+                                setState(() {
+                                  searchText1 = value;
+                                });
+                              }
+                              //-----
+                            },
+                            onEditingComplete: () {
+                              // Check if the entered text is not empty and is a number
+                              if (_searchController1.text.isNotEmpty && int.tryParse(_searchController1.text) != null) {
+                                FocusScope.of(context).requestFocus(field2);
+                                setState(() {
+                                  searchText1 = _searchController1.text;
+                                });
+                              } else {
+                                // If the entered text is empty or not a number, move to the previous input box (field1)
+                                FocusScope.of(context).requestFocus(field4);
+                                setState(() {
+                                  searchText1 = _searchController1.text;
+                                });
+                              }
                             },
                             decoration: InputDecoration(
                               //labelText: "Search",
@@ -202,11 +228,39 @@ class _QuizState extends State<Quiz> {
                             focusNode: field2,
                             controller: _searchController2,
                             onChanged: (value) {
-                              FocusScope.of(context).requestFocus(field3);
-                              isEmpty2 = false;
-                              setState(() {
-                                searchText2 = value;
-                              });
+                              //print(value.isNotEmpty);
+                              //print(value.isEmpty);
+                              //-----
+                              if(value.isNotEmpty && int.tryParse(value) != null){
+                                FocusScope.of(context).requestFocus(field3);
+                              }
+                              else if(value.isNotEmpty){
+                                //print('inne i else if');
+                                FocusScope.of(context).requestFocus(field3);
+                              }
+                              else{
+                                FocusScope.of(context).requestFocus(field1);
+                                isEmpty2 = value.isEmpty;
+                                setState(() {
+                                  searchText2 = value;
+                                });
+                              }
+                              //-----
+                            },
+                            onEditingComplete: () {
+                              // Check if the entered text is not empty and is a number
+                              if (_searchController2.text.isNotEmpty && int.tryParse(_searchController2.text) != null) {
+                                FocusScope.of(context).requestFocus(field3);
+                                setState(() {
+                                  searchText2 = _searchController2.text;
+                                });
+                              } else {
+                                // If the entered text is empty or not a number, move to the previous input box (field1)
+                                FocusScope.of(context).requestFocus(field1);
+                                setState(() {
+                                  searchText2 = _searchController2.text;
+                                });
+                              }
                             },
                             decoration: InputDecoration(
                               //labelText: "Search",
@@ -218,7 +272,7 @@ class _QuizState extends State<Quiz> {
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 25,
-                            )
+                            ),
                           ),
                         ]),
                       ),
@@ -240,11 +294,42 @@ class _QuizState extends State<Quiz> {
                             focusNode: field3,
                             controller: _searchController3,
                             onChanged: (value) {
-                              FocusScope.of(context).requestFocus(field4);
-                              isEmpty3 = false;
-                              setState(() {
-                                searchText3 = value;
-                              });
+                              //-----
+                              if(value.isNotEmpty && int.tryParse(value) != null){
+                                FocusScope.of(context).requestFocus(field4);
+                                //print('inne4');
+                              }
+                              else if(value.isNotEmpty){
+                                //print('inne i else if');
+                                FocusScope.of(context).requestFocus(field4);
+                              }
+                              else{
+                                //print('hej');
+                                FocusScope.of(context).requestFocus(field2);
+                                isEmpty3 = value.isEmpty;
+                                setState(() {
+                                  searchText3 = value;
+                                });
+                              }
+                              //-----
+                            },
+                            onEditingComplete: () {
+                              //print('inne3');
+                              // Check if the entered text is not empty and is a number
+                              if (_searchController3.text.isNotEmpty && int.tryParse(_searchController3.text) != null) {
+                                FocusScope.of(context).requestFocus(field4);
+                                //print('inne2');
+                                setState(() {
+                                  searchText3 = _searchController3.text;
+                                });
+                              } else {
+                                // If the entered text is empty or not a number, move to the previous input box (field1)
+                                //print('inne');
+                                FocusScope.of(context).requestFocus(field2);
+                                setState(() {
+                                  searchText3 = _searchController3.text;
+                                });
+                              }
                             },
                             decoration: InputDecoration(
                               //labelText: "Search",
@@ -278,12 +363,37 @@ class _QuizState extends State<Quiz> {
                             focusNode: field4,
                             controller: _searchController4,
                             onChanged: (value) {
-                              FocusScope.of(context).requestFocus(field1);
-                              isEmpty4 = false;
-
-                              setState(() {
-                                searchText4 = value;
-                              });
+                              //-----
+                              if(value.isNotEmpty && int.tryParse(value) != null){
+                                FocusScope.of(context).requestFocus(field1);
+                              }
+                              else if(value.isNotEmpty){
+                                //print('inne i else if');
+                                FocusScope.of(context).requestFocus(field1);
+                              }
+                              else{
+                                FocusScope.of(context).requestFocus(field3);
+                                isEmpty4 = value.isEmpty;
+                                setState(() {
+                                  searchText4 = value;
+                                });
+                              }
+                              //-----
+                            },
+                            onEditingComplete: () {
+                              // Check if the entered text is not empty and is a number
+                              if (_searchController4.text.isNotEmpty && int.tryParse(_searchController4.text) != null) {
+                                FocusScope.of(context).requestFocus(field1);
+                                setState(() {
+                                  searchText4 = _searchController4.text;
+                                });
+                              } else {
+                                // If the entered text is empty or not a number, move to the previous input box (field1)
+                                FocusScope.of(context).requestFocus(field3);
+                                setState(() {
+                                  searchText4 = _searchController4.text;
+                                });
+                              }
                             },
                             decoration: InputDecoration(
                               //labelText: "Search",

@@ -109,7 +109,7 @@ class _PostFeedViewer extends State<PostFeed> {
               ),
             ),
             //HÄR ÄR FLÖDET
-            Expanded(
+            Expanded( //HERE CHANGE THIS EXPANDED TO CONTAINER, WHEN I TRY IT DOENST WORK
               flex: 6,
               child: StreamBuilder<List>(
               stream: readNotificationStream(),
@@ -145,47 +145,50 @@ class _PostFeedViewer extends State<PostFeed> {
                           ),
                         );
                       },
-                      child: Container(
-                        alignment: Alignment.topLeft,
-                        padding: const EdgeInsets.all(20),
-                        margin: const EdgeInsets.all(20),
-                        width: 200,
-                        height: 200,
-                        decoration: BoxDecoration(
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Colors.black12,
-                                offset: Offset(10, 10),
-                                blurRadius: 10),
-                          ],
-                          image: DecorationImage(
-                            image:
-                                CachedNetworkImageProvider(currentNotif.image),
-                            fit: BoxFit.cover,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                          alignment: Alignment.topLeft,
+                          padding: const EdgeInsets.all(20),
+                          margin: const EdgeInsets.all(20),
+                          width: 360,
+                          height: 200,
+                          decoration: BoxDecoration(
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Colors.black12,
+                                  offset: Offset(10, 10),
+                                  blurRadius: 10),
+                            ],
+                            image: DecorationImage(
+                              image:
+                                  CachedNetworkImageProvider(currentNotif.image),
+                              fit: BoxFit.cover,
+                            ),
+                            borderRadius: BorderRadius.circular(16),
                           ),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              currentNotif.title,
-                              style: const TextStyle(
-                                color: mainColor,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  currentNotif.link,
-                                  style: const TextStyle(color: mainColor),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                currentNotif.title,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                              ],
-                            ),
-                          ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    currentNotif.link,
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     );
