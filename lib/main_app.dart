@@ -64,10 +64,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       Event(),
       //Settings(),
     ]),
-    const Column(children:[
+    /* const Column(children:[
       //TestFrame(),
       Quiz(),
-    ]),
+    ]), */
     const Column(children:[
       //TestFrame(),
       PostFeed(),
@@ -254,11 +254,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   Icons.event,
                 ),
               ),
-              BottomNavigationBarItem(
+/*               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.border_color_rounded,
                 ),
-              ),
+              ), */
               //BottomNavigationBarItem(
               //  icon: Icon(
               //    Icons.favorite,

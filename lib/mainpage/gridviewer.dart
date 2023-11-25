@@ -420,7 +420,7 @@ class _GridViewerState extends State<GridViewer> {
                                   alignment: Alignment.center,
                                   //  color: Colors.grey.withOpacity(0.2),
                                   child: Text(currentComp.name,
-                                      style: const TextStyle(fontSize: 12)));
+                                      style: const TextStyle(fontSize: 12, color: Colors.white)));
                             } else {
                               return Container(
                                   decoration: BoxDecoration(

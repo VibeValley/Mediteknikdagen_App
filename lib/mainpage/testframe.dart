@@ -76,7 +76,7 @@ Stream<List<Company>> readCompanyWelcome1() => FirebaseFirestore.instance
 
 Future<List> readEventsMTDFut() async {
   var notifs = await FirebaseFirestore.instance
-      .collection("Events_preMTD")
+      .collection("Events_preMTD2023")
       .where("isMTD", isEqualTo: true)
       .orderBy("sorttime")
       .get();
@@ -87,8 +87,8 @@ Future<List> readEventsMTDFut() async {
 
 Future<List> readEvents_preMTD_fut() async {
   var notifs = await FirebaseFirestore.instance
-      .collection("Events_preMTD")
-      .where("isPreMTD", isEqualTo: true)
+      .collection("Events_preMTD2023")
+      //.where("isPreMTD", isEqualTo: true)
       .orderBy("sorttime")
       .get();
 

@@ -46,7 +46,7 @@ final List<MTDgruppen> mtdgruppen_list = [
       description: '',
       contac_mail: 'molly.bengtsson@medieteknikdagen.se',
       contac_tel: '',
-      image: './assets/MTD_bilder/andrea.png'),
+      image: './assets/MTD_bilder/molly.png'),
   MTDgruppen(
       name: 'Ivar Gavelin',
       role: 'PR',
@@ -116,5 +116,5 @@ final List<MTDgruppen> mtdgruppen_list = [
       description: '',
       contac_mail: 'gustav.johansson@medieteknikdagen.se',
       contac_tel: '',
-      image: './assets/MTD_bilder/vickep.png'),
+      image: './assets/MTD_bilder/gnu.png'),
 ];
